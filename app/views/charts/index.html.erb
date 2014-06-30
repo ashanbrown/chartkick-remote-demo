@@ -29,7 +29,7 @@
 <h2/>Non-remote Chart </h2>
 
 <pre>
- line_chart { (1..100).map { elapsed_time_point.call } }
+ line_chart(remote: false) { (1..100).map { elapsed_time_point.call } }
 </pre>
 
 <%= line_chart(remote: false) { (1..100).map { elapsed_time_point.call } } %>
