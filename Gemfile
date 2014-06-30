@@ -38,3 +38,7 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'heroku_san'
+
+gem 'chartkick', '1.2.5'
+gem 'chartkick-remote'

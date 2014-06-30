@@ -1,0 +1,35 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<h1>Chartkick Remote</h1>
+
+<pre>
+ start_time = Time.now.to_f * 1000
+ elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - start_time, x - start_time ] }
+</pre>
+
+<h2>Remote Chart</h2>
+
+<pre>
+ line_chart { (1..100).map { elapsed_time_point.call } }
+</pre>
+
+<% start_time = Time.now.to_f * 1000 %>
+<% elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - start_time, x - start_time ] } %>
+
+<%= line_chart { (1..100).map { elapsed_time_point.call } } %>
+
+<h2/>Standalone Remote Chart </h2>
+
+<pre>
+ line_chart { (1..100).map { elapsed_time_point.call } }
+</pre>
+
+<%= line_chart(standalone: true) { (1..100).map { elapsed_time_point.call } } %>
+
+<h2/>Non-remote Chart </h2>
+
+<pre>
+ line_chart { (1..100).map { elapsed_time_point.call } }
+</pre>
+
+<%= line_chart(remote: false) { (1..100).map { elapsed_time_point.call } } %>

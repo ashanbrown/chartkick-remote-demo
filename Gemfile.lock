@@ -29,6 +29,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
+    chartkick (1.2.5)
+    chartkick-remote (1.1.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -37,7 +39,15 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     erubis (2.7.0)
+    excon (0.37.0)
     execjs (2.2.1)
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
+    heroku_san (4.3.2)
+      heroku-api (>= 0.1.2)
+      json
+      rake
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.1.1)
@@ -113,7 +123,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chartkick (= 1.2.5)
+  chartkick-remote
   coffee-rails (~> 4.0.0)
+  heroku_san
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.2)
