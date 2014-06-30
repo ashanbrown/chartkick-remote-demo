@@ -1,10 +1,21 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 
-<h1>Chartkick Remote</h1>
+<h1>Chartkick Remote Demo</h1>
 
+<h2>Controller</h2>
 <pre>
- start_time = Time.now.to_f * 1000
- elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - start_time, x - start_time ] }
+  include Chartkick::Remote
+  chartkick_remote discrete: true
+
+  def index
+    @start_time = (params[:start_time] || (Time.now.to_f * 1000)).to_i
+    params.merge!(start_time: @start_time)
+  end
+</pre>
+
+<h2>View</h2>
+<pre>
+  elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - @start_time, x - @start_time ] }
 </pre>
 
 <h2>Remote Chart</h2>
@@ -13,8 +24,8 @@
  line_chart { (1..100).map { elapsed_time_point.call } }
 </pre>
 
-<% start_time = Time.now.to_f * 1000 %>
-<% elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - start_time, x - start_time ] } %>
+<% start_time = @start_time %>
+<% elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - @start_time, x - @start_time ] } %>
 
 <%= line_chart { (1..100).map { elapsed_time_point.call } } %>
 
