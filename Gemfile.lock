@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/dontfidget/chartkick-remote
-  revision: 7123872a9cd760c10a353f72fc766c3e04cb6792
+  revision: f6423e98fd59eef854ecd63c23a96e3b195fad93
   specs:
     chartkick-remote (1.1.3)
 
