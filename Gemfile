@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.1.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
@@ -44,3 +45,5 @@ gem 'heroku_san'
 
 gem 'chartkick', '1.2.5'
 gem 'chartkick-remote'
+
+gem 'rails_12factor'
