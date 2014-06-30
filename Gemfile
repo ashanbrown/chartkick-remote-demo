@@ -44,6 +44,6 @@ gem 'spring',        group: :development
 gem 'heroku_san'
 
 gem 'chartkick', '1.2.5'
-gem 'chartkick-remote'
+gem 'chartkick-remote', git: 'https://github.com/dontfidget/chartkick-remote'
 
 gem 'rails_12factor'
