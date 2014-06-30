@@ -1,0 +1,2 @@
+chartkick-remote-demo
+=====================
