@@ -5,42 +5,45 @@
 <h2>Controller</h2>
 <pre>
   include Chartkick::Remote
-  chartkick_remote discrete: true
+  chartkick_remote
 
   def index
-    @start_time = (params[:start_time] || (Time.now.to_f * 1000)).to_i
+    @start_time = (params[:start_time] || (Time.zone.now.to_f * 1000)).to_i
     params.merge!(start_time: @start_time)
   end
 </pre>
 
 <h2>View</h2>
 <pre>
-  elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - @start_time, x - @start_time ] }
+  format_time = lambda { |x| x.strftime('%F %T.%L') }
+  elapsed_time_point = lambda { x = Time.zone.now; [ format_time(x), x.to_f * 1000 - @start_time ] }
+  series = lambda { [[format_time.call(Time.zone.at(@start_time / 1000.0)), 0]] + (1..100).map { elapsed_time_point.call } }
 </pre>
 
 <h2>Remote Chart</h2>
 
 <pre>
- line_chart { (1..100).map { elapsed_time_point.call } }
+ line_chart { series.call }
 </pre>
 
-<% start_time = @start_time %>
-<% elapsed_time_point = lambda { x = Time.now.to_f * 1000; [ x - @start_time, x - @start_time ] } %>
+<% format_time = lambda { |x| x.strftime('%F %T.%L') } %>
+<% elapsed_time_point = lambda { x = Time.zone.now; [ format_time.call(x), x.to_f * 1000 - @start_time ] } %>
+<% series = lambda { [[format_time.call(Time.zone.at(@start_time / 1000.0)), 0]] + (1..100).map { elapsed_time_point.call } } %>
 
-<%= line_chart { (1..100).map { elapsed_time_point.call } } %>
+<%= line_chart { series.call } %>
 
 <h2/>Standalone Remote Chart </h2>
 
 <pre>
- line_chart { (1..100).map { elapsed_time_point.call } }
+ line_chart { series.call }
 </pre>
 
-<%= line_chart(standalone: true) { (1..100).map { elapsed_time_point.call } } %>
+<%= line_chart(standalone: true) { series.call } %>
 
 <h2/>Non-remote Chart </h2>
 
 <pre>
- line_chart(remote: false) { (1..100).map { elapsed_time_point.call } }
+ line_chart(remote: false) { series.call }
 </pre>
 
-<%= line_chart(remote: false) { (1..100).map { elapsed_time_point.call } } %>
+<%= line_chart(remote: false) { series.call } %>

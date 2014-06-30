@@ -1,6 +1,6 @@
 class ChartsController < ApplicationController
   include Chartkick::Remote
-  chartkick_remote discrete: true
+  chartkick_remote
 
   def index
     @start_time = (params[:start_time] || (Time.now.to_f * 1000)).to_i
