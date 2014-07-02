@@ -1,8 +1,20 @@
 GIT
   remote: https://github.com/dontfidget/chartkick-remote
-  revision: 7fb7b7b1170774f3495f1597def1d5c45ff23023
+  revision: 3a7b94ad181a8b40df11ac6f478af6939b8e340f
   specs:
     chartkick-remote (1.1.7)
+      chartkick (~> 1.2)
+      railties (>= 3.1)
+
+GIT
+  remote: https://github.com/dontfidget/chartnado
+  revision: a5e37abeac25e3425a7f56c5225579847e47a182
+  specs:
+    chartnado (0.0.1)
+      activesupport (>= 3)
+      chartkick (>= 1.0)
+      chartkick-remote (>= 1.0)
+      railties (>= 3.1)
 
 GEM
   remote: https://rubygems.org/
@@ -54,7 +66,7 @@ GEM
       json
       rake
     hike (1.2.3)
-    i18n (0.6.9)
+    i18n (0.6.11)
     jbuilder (2.1.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -66,7 +78,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    minitest (5.3.5)
+    minitest (5.4.0)
     multi_json (1.10.1)
     pg (0.17.1)
     polyglot (0.3.5)
@@ -124,7 +136,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
-    tzinfo (1.2.1)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.1)
       execjs (>= 0.3.0)
@@ -136,6 +148,7 @@ PLATFORMS
 DEPENDENCIES
   chartkick (= 1.2.5)
   chartkick-remote!
+  chartnado!
   coffee-rails (~> 4.0.0)
   heroku_san
   jbuilder (~> 2.0)

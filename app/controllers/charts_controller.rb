@@ -1,5 +1,6 @@
 class ChartsController < ApplicationController
-  include Chartkick::Remote
+  include Chartnado
+
   chartkick_remote standalone: true
 
   def index

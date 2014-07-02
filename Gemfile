@@ -45,5 +45,6 @@ gem 'heroku_san'
 
 gem 'chartkick', '1.2.5'
 gem 'chartkick-remote', git: 'https://github.com/dontfidget/chartkick-remote'
+gem 'chartnado', git: 'https://github.com/dontfidget/chartnado'
 
 gem 'rails_12factor'

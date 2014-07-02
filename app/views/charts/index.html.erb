@@ -28,7 +28,7 @@
 
 <% format_time = lambda { |x| x.strftime('%F %T.%L') } %>
 <% elapsed_time_point = lambda { x = Time.zone.now; [ format_time.call(x), x.to_f * 1000 - @start_time ] } %>
-<% series = lambda { [[format_time.call(Time.zone.at(@start_time / 1000.0)), 0]] + (1..100).map { elapsed_time_point.call } } %>
+<% series = lambda { ([[format_time.call(Time.zone.at(@start_time / 1000.0)), 0]] + (1..100).map { elapsed_time_point.call }).to_h } %>
 
 <%= line_chart { series.call } %>
 
@@ -47,3 +47,11 @@
 </pre>
 
 <%= line_chart(remote: false) { series.call } %>
+
+<h2>With Chartnado Features</h2>
+
+<pre>
+ line_chart(remote: false) { series.call  / 2 }
+</pre>
+
+<%= line_chart(remote: false) { series.call  / 2 } %>
