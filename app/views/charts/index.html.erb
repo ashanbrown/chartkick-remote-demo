@@ -2,6 +2,10 @@
 
 <h1>Chartkick Remote Demo</h1>
 
+<script>
+  $.ajaxSetup({queue: true, queueMaxConcurrency: 2});
+</script>
+
 <h2>Controller</h2>
 <pre>
   include Chartkick::Remote
@@ -54,4 +58,18 @@
  line_chart(remote: false) { series.call  / 2 }
 </pre>
 
-<%= line_chart(remote: false) { series.call  / 2 } %>
+<%= line_chart { series.call  / 2 } %>
+
+<h2>Maximimum Concurrency</h2>
+  This page includes the following code which should prevent more than a two simultaneous remote request.
+
+<pre>
+  $.ajaxSetup({queue: true, queueMaxConcurrency: 2});
+</pre>
+
+Here are three charts each showing elapsed time since the point was generated:
+
+<%= line_chart(standalone: false) { series.call  / 2 } %>
+<%= line_chart(standalone: false) { series.call  / 2 } %>
+<%= line_chart(standalone: false) { series.call  / 2 } %>
+
